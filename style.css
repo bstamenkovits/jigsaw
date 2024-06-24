@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #303030;
+}
+
+#grid-container {
+    display: grid;
+    gap: 1px; /* Adjust the gap between the cells */
+}
+
+.cell {
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; /* Adjust the width of the cells */
+    height: 50px; /* Adjust the height of the cells */
+    border-radius: 5px;
+}
