@@ -21,5 +21,10 @@ body {
     align-items: center;
     width: 50px; /* Adjust the width of the cells */
     height: 50px; /* Adjust the height of the cells */
-    border-radius: 5px;
+    border-radius: 2px;
+}
+
+.selected {
+    outline: white 1px solid;
+    z-index: 10;
 }
