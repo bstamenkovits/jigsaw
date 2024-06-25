@@ -1,18 +1,23 @@
-const nRows = 6; // Number of rows
-const nCols = 3; // Number of columns
-const gridContainer = document.getElementById('grid-container');
+// const nRows = 6; // Number of rows
+// const nCols = 4; // Number of columns
 
-// Set the grid template rows and columns based on n and m
-gridContainer.style.gridTemplateRows = `repeat(${nRows}, 1fr)`;
-gridContainer.style.gridTemplateColumns = `repeat(${nCols}, 1fr)`;
+function generateBoard(nRows, nCols) {
+    const gridContainer = document.getElementById('grid-container');
 
-// image should always take up ~80% of the screen
-size = (nRows> nCols) ? Math.floor(0.8*window.innerHeight/nRows) : Math.floor(0.8*window.innerWidth/nCols);
-let cells = generateCells(size);
-shuffleCells(cells);
+    // Set the grid template rows and columns based on n and m
+    gridContainer.style.gridTemplateRows = `repeat(${nRows}, 1fr)`;
+    gridContainer.style.gridTemplateColumns = `repeat(${nCols}, 1fr)`;
+
+    size = (nRows> nCols) ? Math.floor(0.8*window.innerHeight/nRows) : Math.floor(0.8*window.innerWidth/nCols);
+    let cells = generateCells(size, nRows, nCols, gridContainer);
+    console.log(cells)
+    shuffleCells(cells);
+    addClickEvents(cells);
+}
 
 
-function generateCells(size) {
+function generateCells(size, nRows, nCols, gridContainer) {
+    console.log(size, nRows, nCols)
     let cells = [];
     for (let y=0; y<nRows; y++) {
         for (let x=0; x<nCols; x++) {
@@ -50,7 +55,7 @@ function createCellDiv(size, text, nRows, nCols, x, y) {
     cellDiv.style.width = `${size}px`;
     cellDiv.style.height = `${size}px`;
     
-    cellDiv.style.backgroundImage = 'url("image.jpg")';
+    cellDiv.style.backgroundImage = 'url("image1.jpg")';
     cellDiv.style.backgroundSize = `${nCols*size}px ${nRows*size}px`;
     cellDiv.style.backgroundPositionX = `-${x * size}px`;
     cellDiv.style.backgroundPositionY = `-${y * size}px`;

@@ -21,7 +21,6 @@ class Cell {
     }
 
     swapImage(cell) {
-        console.log(cell.fixed)
         if ( cell.fixed | this.fixed ) { return }
         let otherX = cell.x;
         let otherY = cell.y;
