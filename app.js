@@ -1,5 +1,23 @@
-const imageIdx = 5;
-const resolution = 5;
+// Assuming the URL is "index.html?id=123"
+const urlParams = new URLSearchParams(window.location.search);
+const imageIdx = urlParams.get('idx'); // "123"
+
+// Difficulty slider (resolution)
+const rangeInput = document.getElementById('slider-input');
+const rangeValue = document.getElementById('difficulty-value');
+
+loadPuzzle(imageIdx, rangeInput.value);
+
+rangeInput.addEventListener('input', function() {
+    let gridContainer = document.getElementById('grid-container');
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
+
+    rangeValue.textContent = this.value;
+    loadPuzzle(imageIdx, this.value);
+});
+
 
 function loadPuzzle(imageIdx, resolution) {
     fetch('images.json')
@@ -15,4 +33,7 @@ function loadPuzzle(imageIdx, resolution) {
         })
 }
 
-loadPuzzle(imageIdx, resolution);
+
+
+// loadPuzzle(imageIdx, resolution);
+// loadPuzzle(imageIdx, resolution);

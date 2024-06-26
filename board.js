@@ -4,12 +4,23 @@ class Board {
         this.nRows = nRows;
         this.nCols = nCols;
         this.imageName = imageName;
-        this.cellSize = (nRows> nCols) ? Math.floor(0.8*window.innerHeight/nRows) : Math.floor(0.8*window.innerWidth/nCols);
+        
+        // this.cellSize = (nRows> nCols) ? Math.floor(0.8*window.innerHeight/nRows) : Math.floor(0.8*window.innerWidth/nCols);
+        this.cellSize = this.calculateCellSize();
         
         this.gridDiv = this.generateGridDiv();
         this.cells = this.generateCells();
         this.shuffleCells();
         this.addCellEventListeners();
+    }
+
+    calculateCellSize() {
+        let maxWidth = 0.8*window.innerWidth;
+        let maxHeight = 0.8*window.innerHeight;
+
+        let cellMaxWidth = maxWidth/this.nCols;
+        let cellMaxHeight = maxHeight/this.nRows;
+        return Math.min(cellMaxWidth, cellMaxHeight);
     }
 
     generateGridDiv() {

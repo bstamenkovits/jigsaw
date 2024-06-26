@@ -1,0 +1,30 @@
+#jigsaw-puzzle {
+    width: 80vw;
+    /* height: 80vh; */
+    margin: 0 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#grid-container {
+    display: grid;
+    gap: 1px; /* Adjust the gap between the cells */
+}
+
+.cell {
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px; /* Adjust the width of the cells */
+    height: 50px; /* Adjust the height of the cells */
+    border-radius: 2px;
+}
+
+.selected {
+    outline: white 1px solid;
+    z-index: 10;
+}

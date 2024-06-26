@@ -1,5 +1,6 @@
 const puzzleSelectContainer = document.getElementById('puzzle-select-container');
 
+
 fetch('images.json')
     .then(response => { return response.json(); })
     .then(data => {
@@ -14,15 +15,22 @@ fetch('images.json')
 
 
 function createThumbNail(idx, imageData) {
-    let thumbnail = document.createElement('div');
+    let thumbnail = document.createElement('a');
+    thumbnail.href = `index.html?idx=${idx}`;
+
+    // let link = document.createElement('a');
+    // link.href = 'google.com'
+    // link.target = '_blank';
+
     thumbnail.className = 'thumbnail';
     thumbnail.style.backgroundImage = `url("media/thumbnail/${imageData.name}")`;
     thumbnail.style.backgroundSize = 'cover';
     thumbnail.style.backgroundPosition = 'center';
     thumbnail.style.width = '100px';
     thumbnail.style.height = '100px';
-    thumbnail.classList.add('hidden');
+    // thumbnail.classList.add('hidden');
 
+    // thumbnail.appendChild(link);
     thumbnail.addEventListener('click', () => {
 
     })

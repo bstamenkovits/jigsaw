@@ -1,0 +1,20 @@
+#puzzle-select-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 50px;
+    overflow-y: scroll;
+}
+
+.thumbnail {
+    margin: 5px;
+    border-radius: 6px;
+}
+
+.thumbnail:hover {
+    outline: 2px solid #007bff;
+}
