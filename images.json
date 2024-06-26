@@ -1,12 +1,392 @@
 {
+    "0": {
+        "name": "image0.jpg",
+        "width": 2160,
+        "height": 2700
+    },
     "1": {
         "name": "image1.jpg",
-        "width": 1920,
+        "width": 3853,
+        "height": 5780
+    },
+    "10": {
+        "name": "image10.jpg",
+        "width": 2592,
+        "height": 3888
+    },
+    "11": {
+        "name": "image11.jpg",
+        "width": 2160,
         "height": 2880
+    },
+    "12": {
+        "name": "image12.jpg",
+        "width": 4160,
+        "height": 6240
+    },
+    "13": {
+        "name": "image13.jpg",
+        "width": 3024,
+        "height": 4032
+    },
+    "14": {
+        "name": "image14.jpg",
+        "width": 4106,
+        "height": 5132
+    },
+    "15": {
+        "name": "image15.jpg",
+        "width": 2883,
+        "height": 4325
+    },
+    "16": {
+        "name": "image16.jpg",
+        "width": 5304,
+        "height": 7952
+    },
+    "17": {
+        "name": "image17.jpg",
+        "width": 4500,
+        "height": 7800
+    },
+    "18": {
+        "name": "image18.jpg",
+        "width": 4000,
+        "height": 6000
+    },
+    "19": {
+        "name": "image19.jpg",
+        "width": 2014,
+        "height": 2517
     },
     "2": {
         "name": "image2.jpg",
+        "width": 2164,
+        "height": 3852
+    },
+    "20": {
+        "name": "image20.jpg",
+        "width": 4160,
+        "height": 6240
+    },
+    "21": {
+        "name": "image21.jpg",
+        "width": 4672,
+        "height": 7008
+    },
+    "22": {
+        "name": "image22.jpg",
+        "width": 3467,
+        "height": 5200
+    },
+    "23": {
+        "name": "image23.jpg",
+        "width": 3779,
+        "height": 5668
+    },
+    "24": {
+        "name": "image24.jpg",
+        "width": 3456,
+        "height": 5184
+    },
+    "25": {
+        "name": "image25.jpg",
+        "width": 3840,
+        "height": 5760
+    },
+    "26": {
+        "name": "image26.jpg",
         "width": 1920,
         "height": 2880
+    },
+    "27": {
+        "name": "image27.jpg",
+        "width": 3002,
+        "height": 4500
+    },
+    "28": {
+        "name": "image28.jpg",
+        "width": 5304,
+        "height": 7952
+    },
+    "29": {
+        "name": "image29.jpg",
+        "width": 2398,
+        "height": 2997
+    },
+    "3": {
+        "name": "image3.jpg",
+        "width": 4480,
+        "height": 6720
+    },
+    "30": {
+        "name": "image30.jpg",
+        "width": 2726,
+        "height": 4082
+    },
+    "31": {
+        "name": "image31.jpg",
+        "width": 5496,
+        "height": 7959
+    },
+    "32": {
+        "name": "image32.jpg",
+        "width": 3292,
+        "height": 4938
+    },
+    "33": {
+        "name": "image33.jpg",
+        "width": 3072,
+        "height": 4608
+    },
+    "34": {
+        "name": "image34.jpg",
+        "width": 6675,
+        "height": 10013
+    },
+    "35": {
+        "name": "image35.jpg",
+        "width": 2934,
+        "height": 4402
+    },
+    "36": {
+        "name": "image36.jpg",
+        "width": 3906,
+        "height": 5858
+    },
+    "37": {
+        "name": "image37.jpg",
+        "width": 3416,
+        "height": 5124
+    },
+    "38": {
+        "name": "image38.jpg",
+        "width": 5504,
+        "height": 8256
+    },
+    "39": {
+        "name": "image39.jpg",
+        "width": 3571,
+        "height": 5356
+    },
+    "4": {
+        "name": "image4.jpg",
+        "width": 2249,
+        "height": 3996
+    },
+    "40": {
+        "name": "image40.jpg",
+        "width": 3995,
+        "height": 5899
+    },
+    "41": {
+        "name": "image41.jpg",
+        "width": 3024,
+        "height": 4032
+    },
+    "42": {
+        "name": "image42.jpg",
+        "width": 4024,
+        "height": 6048
+    },
+    "43": {
+        "name": "image43.jpg",
+        "width": 4651,
+        "height": 7441
+    },
+    "44": {
+        "name": "image44.jpg",
+        "width": 3264,
+        "height": 4896
+    },
+    "45": {
+        "name": "image45.jpg",
+        "width": 2669,
+        "height": 4000
+    },
+    "46": {
+        "name": "image46.jpg",
+        "width": 3397,
+        "height": 5095
+    },
+    "47": {
+        "name": "image47.jpg",
+        "width": 3793,
+        "height": 4741
+    },
+    "48": {
+        "name": "image48.jpg",
+        "width": 4160,
+        "height": 6240
+    },
+    "49": {
+        "name": "image49.jpg",
+        "width": 7424,
+        "height": 11315
+    },
+    "5": {
+        "name": "image5.jpg",
+        "width": 4160,
+        "height": 6240
+    },
+    "50": {
+        "name": "image50.jpg",
+        "width": 5417,
+        "height": 8122
+    },
+    "51": {
+        "name": "image51.jpg",
+        "width": 5074,
+        "height": 7611
+    },
+    "52": {
+        "name": "image52.jpg",
+        "width": 1886,
+        "height": 2829
+    },
+    "53": {
+        "name": "image53.jpg",
+        "width": 4000,
+        "height": 6000
+    },
+    "54": {
+        "name": "image54.jpg",
+        "width": 4000,
+        "height": 6000
+    },
+    "55": {
+        "name": "image55.jpg",
+        "width": 3181,
+        "height": 4771
+    },
+    "56": {
+        "name": "image56.jpg",
+        "width": 2668,
+        "height": 4000
+    },
+    "57": {
+        "name": "image57.jpg",
+        "width": 4160,
+        "height": 6240
+    },
+    "58": {
+        "name": "image58.jpg",
+        "width": 2034,
+        "height": 3040
+    },
+    "59": {
+        "name": "image59.jpg",
+        "width": 3339,
+        "height": 5035
+    },
+    "6": {
+        "name": "image6.jpg",
+        "width": 4012,
+        "height": 6018
+    },
+    "60": {
+        "name": "image60.jpg",
+        "width": 2829,
+        "height": 3536
+    },
+    "61": {
+        "name": "image61.jpg",
+        "width": 3582,
+        "height": 5373
+    },
+    "62": {
+        "name": "image62.jpg",
+        "width": 3271,
+        "height": 4899
+    },
+    "63": {
+        "name": "image63.jpg",
+        "width": 3271,
+        "height": 4899
+    },
+    "64": {
+        "name": "image64.jpg",
+        "width": 3376,
+        "height": 6000
+    },
+    "65": {
+        "name": "image65.jpg",
+        "width": 2000,
+        "height": 3000
+    },
+    "66": {
+        "name": "image66.jpg",
+        "width": 2000,
+        "height": 3000
+    },
+    "67": {
+        "name": "image67.jpg",
+        "width": 2995,
+        "height": 3998
+    },
+    "68": {
+        "name": "image68.jpg",
+        "width": 5464,
+        "height": 8192
+    },
+    "69": {
+        "name": "image69.jpg",
+        "width": 4000,
+        "height": 6000
+    },
+    "7": {
+        "name": "image7.jpg",
+        "width": 3648,
+        "height": 5472
+    },
+    "70": {
+        "name": "image70.jpg",
+        "width": 2955,
+        "height": 3940
+    },
+    "71": {
+        "name": "image71.jpg",
+        "width": 2831,
+        "height": 4246
+    },
+    "72": {
+        "name": "image72.jpg",
+        "width": 2828,
+        "height": 4242
+    },
+    "73": {
+        "name": "image73.jpg",
+        "width": 3992,
+        "height": 5976
+    },
+    "74": {
+        "name": "image74.jpg",
+        "width": 2304,
+        "height": 3456
+    },
+    "75": {
+        "name": "image75.jpg",
+        "width": 4000,
+        "height": 6000
+    },
+    "76": {
+        "name": "image76.jpg",
+        "width": 6336,
+        "height": 9504
+    },
+    "77": {
+        "name": "image77.jpg",
+        "width": 5304,
+        "height": 7952
+    },
+    "8": {
+        "name": "image8.jpg",
+        "width": 3448,
+        "height": 5168
+    },
+    "9": {
+        "name": "image9.jpg",
+        "width": 3904,
+        "height": 5856
     }
 }
