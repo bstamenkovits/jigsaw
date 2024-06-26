@@ -1,63 +1,70 @@
-// const nRows = 6; // Number of rows
-// const nCols = 4; // Number of columns
+class Board {
 
-function generateBoard(nRows, nCols, image_name) {
-    const gridContainer = document.getElementById('grid-container');
+    constructor(nRows, nCols, imageName) {
+        this.nRows = nRows;
+        this.nCols = nCols;
+        this.imageName = imageName;
+        this.cellSize = (nRows> nCols) ? Math.floor(0.8*window.innerHeight/nRows) : Math.floor(0.8*window.innerWidth/nCols);
+        
+        this.gridDiv = this.generateGridDiv();
+        this.cells = this.generateCells();
+        this.shuffleCells();
+        this.addCellEventListeners();
+    }
 
-    // Set the grid template rows and columns based on n and m
-    gridContainer.style.gridTemplateRows = `repeat(${nRows}, 1fr)`;
-    gridContainer.style.gridTemplateColumns = `repeat(${nCols}, 1fr)`;
+    generateGridDiv() {
+        let gridContainer = document.getElementById('grid-container');
+        gridContainer.style.gridTemplateRows = `repeat(${this.nRows}, 1fr)`;
+        gridContainer.style.gridTemplateColumns = `repeat(${this.nCols}, 1fr)`;
+        return gridContainer;
+    }
 
-    size = (nRows> nCols) ? Math.floor(0.8*window.innerHeight/nRows) : Math.floor(0.8*window.innerWidth/nCols);
-    let cells = generateCells(size, nRows, nCols, gridContainer, image_name);
-    console.log(cells)
-    shuffleCells(cells);
-    addClickEvents(cells);
-}
+    generateCells() {
+        let cells = [];
+        for (let y=0; y<this.nRows; y++) {
+            for (let x=0; x<this.nCols; x++) {
+                let fixed = (x === 0 | y === 0 | x === this.nCols-1 | y === this.nRows-1) ? true : false;
+                let idx = y*this.nCols + x;
+                let cell = new Cell(idx, x, y, x, y, fixed, this.cellSize, this.imageName, this.nRows, this.nCols);
+                this.gridDiv.appendChild(cell.div);
+                cells.push(cell);
+            }
+        }
+        return cells;
+    }
 
+    deslectAllCells() {
+        this.cells.forEach(cell => {
+            cell.div.classList.remove('selected');
+        });
+    }
 
-function generateCells(size, nRows, nCols, gridContainer, image_name) {
-    console.log(size, nRows, nCols)
-    let cells = [];
-    for (let y=0; y<nRows; y++) {
-        for (let x=0; x<nCols; x++) {
-            let fixed = (x === 0 | y === 0 | x === nCols-1 | y === nRows-1) ? true : false;
-            let idx = y*nCols + x;
-            let cellDiv = createCellDiv(size, idx, nRows, nCols, x, y, image_name);
-            let cell = new Cell(idx, x, y, x, y, cellDiv, fixed);
-            gridContainer.appendChild(cellDiv);
-            cells.push(cell);
+    shuffleCells() {
+        for (let i=0; i<1000; i++) {
+            let idx1 = Math.floor(Math.random()*this.cells.length);
+            let idx2 = Math.floor(Math.random()*this.cells.length);
+            this.cells[idx1].swapImage(this.cells[idx2]);
         }
     }
-    return cells;
-}
 
-
-function shuffleCells(cells) {
-    for (let i=0; i<1000; i++) {
-        let idx1 = Math.floor(Math.random()*cells.length);
-        let idx2 = Math.floor(Math.random()*cells.length);
-        cells[idx1].swapImage(cells[idx2]);
+    addCellEventListeners() {
+        this.cells.forEach(cell => {
+            cell.div.addEventListener('click', () => {    
+                if (!cell.fixed) {
+                    if (!cell.div.classList.contains('selected')) {
+                        cell.div.classList.add('selected');
+                    } else {
+                        cell.div.classList.remove('selected');
+                    }
+                }
+                
+                let activeCells = this.cells.filter(cell => cell.div.classList.contains('selected'));
+                if (activeCells.length > 1) {
+                    activeCells[0].swapImage(activeCells[1]);
+                    this.deslectAllCells();
+                }
+            });
+        })
     }
-}
 
-// let cell1= cells[12];
-// let cell2 = cells[13];
-// cell1.swapImage(cell2);
-
-
-
-
-function createCellDiv(size, text, nRows, nCols, x, y, image_name) {
-    let cellDiv = document.createElement('div');
-    cellDiv.className = 'cell';
-    // cellDiv.textContent = text; 
-    cellDiv.style.width = `${size}px`;
-    cellDiv.style.height = `${size}px`;
-    
-    cellDiv.style.backgroundImage = `url("media/pictures/${image_name}")`;
-    cellDiv.style.backgroundSize = `${nCols*size}px ${nRows*size}px`;
-    cellDiv.style.backgroundPositionX = `-${x * size}px`;
-    cellDiv.style.backgroundPositionY = `-${y * size}px`;
-    return cellDiv
 }
