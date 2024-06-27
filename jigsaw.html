@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jigsaw Puzzle</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="board.css">
+    <link rel="stylesheet" href="controls.css">
+
+    <script src="cell.js" defer></script>
+    <script src="board.js" defer></script>
+    <script src="app.js" defer></script>
+    
+</head>
+<body>
+
+    <div class="pop-up-container">
+        <h1>Great Success!</h1>
+        <a href="index.html">
+            <!-- <button>Slect Puzzle</button> -->
+        </a>
+    </div>
+    
+
+    <div id="controls-container">
+        <div id="difficulty-controls">
+            <span id="difficulty-title">Difficulty</span>
+            <span id="difficulty-value">4</span>
+            <div id="range-input-container">
+                <input id="slider-input" type="range" min="3" max="12" value="4"/>
+            </div>
+        </div>
+
+        <div id="select-puzzle-container">
+            <a href="index.html">
+                <button>Select Puzzle</button>
+            </a>
+        </div>
+    </div>
+
+    <div id="jigsaw-puzzle">
+        <div id="grid-container"></div>
+    </div>
+    
+</body>
+</html>

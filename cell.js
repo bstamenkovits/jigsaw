@@ -42,4 +42,8 @@ class Cell {
         cell.updatePosition(this.x, this.y);
         this.updatePosition(otherX, otherY);
     }
+
+    checkPosition() {
+        return (this.x === this.x0 && this.y === this.y0)
+    }
 }

@@ -6,7 +6,7 @@ fetch('images.json')
     .then(data => {
         for (const [idx, imageData] of Object.entries(data)) {
             // Process each key-value pair here
-            console.log(imageData); 
+            // console.log(imageData); 
             let thumbnail = createThumbNail(idx, imageData);
             puzzleSelectContainer.appendChild(thumbnail);
             // Example action: log each key-value pair
@@ -16,18 +16,19 @@ fetch('images.json')
 
 function createThumbNail(idx, imageData) {
     let thumbnail = document.createElement('a');
-    thumbnail.href = `index.html?idx=${idx}`;
+    thumbnail.href = `jigsaw.html?idx=${idx}`;
 
     // let link = document.createElement('a');
     // link.href = 'google.com'
     // link.target = '_blank';
 
+    let thumbnailSize = 100;
     thumbnail.className = 'thumbnail';
     thumbnail.style.backgroundImage = `url("media/thumbnail/${imageData.name}")`;
     thumbnail.style.backgroundSize = 'cover';
     thumbnail.style.backgroundPosition = 'center';
-    thumbnail.style.width = '100px';
-    thumbnail.style.height = '100px';
+    thumbnail.style.width = `${thumbnailSize}px`;
+    thumbnail.style.height = `${thumbnailSize}px`;
     // thumbnail.classList.add('hidden');
 
     // thumbnail.appendChild(link);

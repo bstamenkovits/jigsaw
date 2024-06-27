@@ -1,3 +1,7 @@
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 class Board {
 
     constructor(nRows, nCols, imageName) {
@@ -16,7 +20,7 @@ class Board {
 
     calculateCellSize() {
         let maxWidth = 0.8*window.innerWidth;
-        let maxHeight = 0.8*window.innerHeight;
+        let maxHeight = 0.65*window.innerHeight;
 
         let cellMaxWidth = maxWidth/this.nCols;
         let cellMaxHeight = maxHeight/this.nRows;
@@ -58,6 +62,16 @@ class Board {
         }
     }
 
+    checkBoard() {
+        let correct = true;
+        this.cells.forEach(cell => {
+            if (!cell.checkPosition()) {
+                correct = false;
+            }
+        })
+        return correct;
+    }
+
     addCellEventListeners() {
         this.cells.forEach(cell => {
             cell.div.addEventListener('click', () => {    
@@ -73,6 +87,16 @@ class Board {
                 if (activeCells.length > 1) {
                     activeCells[0].swapImage(activeCells[1]);
                     this.deslectAllCells();
+                    if (this.checkBoard()){
+                        this.gridDiv.style.gap= '0px';
+                        this.cells.forEach(cell => {
+                            cell.div.style.borderRadius = '0px';
+                        })
+                        
+                        let popUp = document.getElementsByClassName('pop-up-container')
+                        popUp[0].style.display = 'block';
+                        
+                    };
                 }
             });
         })

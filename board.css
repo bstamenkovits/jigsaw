@@ -10,21 +10,53 @@
 
 #grid-container {
     display: grid;
-    gap: 1px; /* Adjust the gap between the cells */
+    gap: 1px; 
 }
 
 .cell {
-    background-color: #007bff;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50px; /* Adjust the width of the cells */
     height: 50px; /* Adjust the height of the cells */
-    border-radius: 2px;
+    border-radius: 4px;
 }
 
 .selected {
     outline: white 1px solid;
     z-index: 10;
+}
+
+.pop-up-container{
+    z-index: -10;
+    display: none;
+    /* background-color: rgba(0, 0, 0, 0.65); */
+    width: 100vw;
+    height: 100vh;
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.pop-up-container h1 {
+    
+    width: 80vw;
+    position:absolute;
+    left: 50%;
+    top: 85%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 6em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.pop-up-container button {
+    /* width: 80vw; */
+    position:absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
 }
