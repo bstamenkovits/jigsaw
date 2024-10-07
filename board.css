@@ -10,7 +10,10 @@
 
 #grid-container {
     display: grid;
-    gap: 1px; 
+    overflow: hidden;
+    border-radius: 10px;
+    /* background-color: aqua; */
+    /* gap: 1px;  */
 }
 
 .cell {
@@ -19,7 +22,7 @@
     align-items: center;
     width: 50px; /* Adjust the width of the cells */
     height: 50px; /* Adjust the height of the cells */
-    border-radius: 4px;
+    border-radius: 1px;
 }
 
 .selected {
