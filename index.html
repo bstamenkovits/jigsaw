@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jigsaw Puzzle</title>
+    <link rel="canonical" href="https://bstamenkovits.github.io/jigsaw/" />
+    <link rel="manifest" href="jigsaw/manifest.webmanifest">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="thumbnails.css">
     <script src="select.js" defer></script>
-    
+    <script>
+        if (navigator.serviceWorker) {
+          navigator.serviceWorker.register (
+            '/jigsaw/sw.js',
+            {scope: '/jigsaw/'}
+          )
+        }
+    </script>
     
 </head>
 <body>
