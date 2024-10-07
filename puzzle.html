@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jigsaw Puzzle</title>
+    <script src="puzzle.js" defer></script>
+    <link rel="stylesheet" href="puzzle.css">
+</head>
+<body>
+    <div id="main-container">
+        <div id="nav">
+            <a href="index.html">
+                <!-- <button>Select Puzzle</button> -->
+                <svg class="back-button-svg" fill="#000000" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g data-name="Layer 2"> <g data-name="arrow-ios-back"> <rect width="24" height="24" transform="rotate(90 12 12)" opacity="0"></rect> <path d="M13.83 19a1 1 0 0 1-.78-.37l-4.83-6a1 1 0 0 1 0-1.27l5-6a1 1 0 0 1 1.54 1.28L10.29 12l4.32 5.36a1 1 0 0 1-.78 1.64z"></path> </g> </g> </g></svg>
+            </a>
+        </div>
+
+        <div id="difficulty-controls-container">
+            <div id="difficulty-controls-text">
+                <span id="difficulty-title">Difficulty</span>
+                <span id="difficulty-value">4</span></div>
+            <div id="range-input-container">
+                <input id="slider-input" type="range" min="3" max="12" value="4"/>
+            </div>
+        </div>
+        
+        <div id="puzzle-container">
+            <div id="board">Board</div>
+        </div>
+    </div>
+</body>
+</html>
