@@ -1,0 +1,22 @@
+#controls{
+    width: 100%;
+    --button-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+#controls button svg{
+    margin:0;
+    width: var(--button-size);
+    height: var(--button-size);
+}
+
+#controls button{
+    background-color: #ffffff;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}

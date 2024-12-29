@@ -1,20 +1,81 @@
+#title-container{
+    width: 100vw;
+    height: 20vh;
+    margin: 0px;
+    padding: 0px;
+    /* background-color: #007bff; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    /* margin-top: 50px; */
+    margin-bottom: 10px;
+}
+
+#title-container h1 {
+    font-family: "Patua One", serif;
+    font-weight: 200;
+    letter-spacing: 0.02em;
+    /* line-height: 1.2; */
+    color: white;
+    font-size: 2.5em;
+    margin: 0 5vw;
+    margin-top: 20px;
+}
+
+#title-container p {
+    color: white;
+    font-size: 1em;
+    font-weight: 300;
+    letter-spacing: 0.02em;;
+    margin: 15px 5vw;
+}
+
+
+
+
+
+
 #puzzle-select-container {
-    width: 80vw;
+    border-top-left-radius: 20px; /* Updated line */
+    border-top-right-radius: 20px; /* Updated line */
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 40px;
+    /* margin-top: 50px; */
+    /* margin-bottom: 50px; */
+    /* padding: 10vw 0vw; */
+    overflow-y: scroll;
+}
+
+#grid-container {
+    border-top-left-radius: 20px; /* Updated line */
+    border-top-right-radius: 20px; /* Updated line */
+    background-color: white;
+    /* width: 100vw; */
     /* height: 100vh; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     /* margin-top: 50px; */
     /* margin-bottom: 50px; */
-    padding: 50px;
+    /* padding: 10vw 0vw; */
     overflow-y: scroll;
 }
 
 .thumbnail {
+    --thumbnail-size: min(25vw, 150px);
+    /* --thumbnail-max-size: 150px; */
+    width: var(--thumbnail-size);
+    height: var(--thumbnail-size);
     margin: 5px;
     border-radius: 6px;
 }
 
 .thumbnail:hover {
-    outline: 2px solid #007bff;
+    outline: 2px solid #55a7ff;
 }

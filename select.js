@@ -1,4 +1,4 @@
-const puzzleSelectContainer = document.getElementById('puzzle-select-container');
+const puzzleSelectContainer = document.getElementById('grid-container');
 
 
 fetch('images.json')
@@ -6,7 +6,7 @@ fetch('images.json')
     .then(data => {
         for (const [idx, imageData] of Object.entries(data)) {
             // Process each key-value pair here
-            // console.log(imageData); 
+            // console.log(imageData);
             let thumbnail = createThumbNail(idx, imageData);
             puzzleSelectContainer.appendChild(thumbnail);
             // Example action: log each key-value pair
@@ -22,13 +22,13 @@ function createThumbNail(idx, imageData) {
     // link.href = 'google.com'
     // link.target = '_blank';
 
-    let thumbnailSize = 100;
+    let thumbnailSize = 110;
     thumbnail.className = 'thumbnail';
     thumbnail.style.backgroundImage = `url("media/thumbnail/${imageData.name}")`;
     thumbnail.style.backgroundSize = 'cover';
     thumbnail.style.backgroundPosition = 'center';
-    thumbnail.style.width = `${thumbnailSize}px`;
-    thumbnail.style.height = `${thumbnailSize}px`;
+    // thumbnail.style.width = `${thumbnailSize}px`;
+    // thumbnail.style.height = `${thumbnailSize}px`;
     // thumbnail.classList.add('hidden');
 
     // thumbnail.appendChild(link);

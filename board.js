@@ -8,10 +8,10 @@ class Board {
         this.nRows = nRows;
         this.nCols = nCols;
         this.imageName = imageName;
-        
+
         // this.cellSize = (nRows> nCols) ? Math.floor(0.8*window.innerHeight/nRows) : Math.floor(0.8*window.innerWidth/nCols);
         this.cellSize = this.calculateCellSize();
-        
+
         this.gridDiv = this.generateGridDiv();
         this.cells = this.generateCells();
         this.shuffleCells();
@@ -19,8 +19,8 @@ class Board {
     }
 
     calculateCellSize() {
-        let maxWidth = 0.8*window.innerWidth;
-        let maxHeight = 0.65*window.innerHeight;
+        let maxWidth = 1*window.innerWidth;
+        let maxHeight = 0.8*window.innerHeight;
 
         let cellMaxWidth = maxWidth/this.nCols;
         let cellMaxHeight = maxHeight/this.nRows;
@@ -74,7 +74,7 @@ class Board {
 
     addCellEventListeners() {
         this.cells.forEach(cell => {
-            cell.div.addEventListener('click', () => {    
+            cell.div.addEventListener('click', () => {
                 if (!cell.fixed) {
                     if (!cell.div.classList.contains('selected')) {
                         cell.div.classList.add('selected');
@@ -82,7 +82,7 @@ class Board {
                         cell.div.classList.remove('selected');
                     }
                 }
-                
+
                 let activeCells = this.cells.filter(cell => cell.div.classList.contains('selected'));
                 if (activeCells.length > 1) {
                     activeCells[0].swapImage(activeCells[1]);
@@ -92,10 +92,10 @@ class Board {
                         this.cells.forEach(cell => {
                             cell.div.style.borderRadius = '0px';
                         })
-                        
-                        let popUp = document.getElementsByClassName('pop-up-container')
-                        popUp[0].style.display = 'block';
-                        
+                        let popUp = document.getElementById('solved');
+                        popUp.style.display = 'flex';
+                        popUp.style.zIndex = '10';
+
                     };
                 }
             });

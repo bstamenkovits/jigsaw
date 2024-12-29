@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jigsaw Puzzle</title>
-    <link rel="canonical" href="https://bstamenkovits.github.io/jigsaw/" />
-    <link rel="manifest" href="jigsaw/manifest.json">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="thumbnails.css">
-    <script src="select.js" defer></script>
-    <script>
-        if (navigator.serviceWorker) {
-          navigator.serviceWorker.register (
-            '/jigsaw/sw.js',
-            {scope: '/jigsaw/'}
-          )
-        }
-    </script>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jigsaw Puzzle</title>
+  <link rel="canonical" href="https://bstamenkovits.github.io/jigsaw/" />
+  <link rel="manifest" href="jigsaw/manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Patua+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="thumbnails.css">
+
+  <script src="select.js" defer></script>
+  <script>
+      if (navigator.serviceWorker) {
+        navigator.serviceWorker.register (
+          '/jigsaw/sw.js',
+          {scope: '/jigsaw/'}
+        )
+      }
+  </script>
+
 </head>
 <body>
-    <div id="puzzle-select-container"></div>
+  <div id="title-container">
+    <h1>Jigsaw Puzzle</h1>
+    <p>Choose a puzzle to play</p>
+
+  </div>
+  <!-- <div id="puzzle-select-container1"></div> -->
+  <div id="puzzle-select-container">
+    <div id="grid-container"></div>
+  </div>
 </body>
 </html>
