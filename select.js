@@ -17,6 +17,7 @@ fetch('images.json')
 function createThumbNail(idx, imageData) {
     let thumbnail = document.createElement('a');
     thumbnail.href = `jigsaw.html?idx=${idx}`;
+    thumbnail.href = `puzzle.html?idx=${idx}`;
 
     // let link = document.createElement('a');
     // link.href = 'google.com'
