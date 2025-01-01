@@ -75,30 +75,8 @@ class Board {
     addCellEventListeners() {
         this.cells.forEach(cell => {
             cell.div.addEventListener('click', () => {
-                if (!cell.fixed) {
-                    if (!cell.div.classList.contains('selected')) {
-                        cell.div.classList.add('selected');
-                    } else {
-                        cell.div.classList.remove('selected');
-                    }
-                }
-
-                let activeCells = this.cells.filter(cell => cell.div.classList.contains('selected'));
-                if (activeCells.length > 1) {
-                    activeCells[0].swapImage(activeCells[1]);
-                    this.deslectAllCells();
-                    if (this.checkBoard()){
-                        this.gridDiv.style.gap= '0px';
-                        this.cells.forEach(cell => {
-                            cell.div.style.borderRadius = '0px';
-                        })
-                        let popUp = document.getElementById('solved');
-                        popUp.style.display = 'flex';
-                        popUp.style.zIndex = '10';
-
-                    };
-                }
-            });
+                console.log("click")
+            })
         })
     }
 

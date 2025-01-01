@@ -1,0 +1,9 @@
+#puzzle-container{
+    width: 100vw;
+    height: 100vh;
+}
+
+.piece {
+    display: absolute;
+    background-color: aqua;
+}
