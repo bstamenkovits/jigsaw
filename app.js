@@ -6,24 +6,35 @@ const rangeInput = document.getElementById('slider-input');
 loadPuzzle(imageIdx, rangeInput.value);
 
 class Piece {
-    constructor(x, y, width, height, puzzleContainerDiv) {
+    constructor(x, y, width, height, puzzleContainerDiv, isMovable=true) {
         this.left = x-width/2;
         this.top = y-height/2;
         this.width = width;
         this.height = height;
-        this.div = this.createDiv(puzzleContainerDiv);
-        console.log(this.left, this.top)
-        console.log(this.div)
-        this.addEventListeners();
+        this.div = this.createDiv(puzzleContainerDiv, isMovable);
+        if (isMovable){
+            this.addEventListeners();
+        }
+        this.active = false;
     }
 
     get x() { return this.top + this.width/2; }
     get y() { return this.left + this.height/2; }
 
-    createDiv(puzzleContainerDiv) {
+    snapToPosition(x, y) {
+        this.top = x - this.width/2;
+        this.left = y - this.height/2;
+        this.div.style.top = `${this.top}px`;
+        this.div.style.left = `${this.left}px`;
+    }
+
+    createDiv(puzzleContainerDiv, isMovable=true) {
         let piece = document.createElement('div');
         puzzleContainerDiv.appendChild(piece);
         piece.className = 'piece';
+        if (isMovable) {
+            piece.style.backgroundColor = 'red';
+        }
         piece.style.width = `${this.width}px`;
         piece.style.height = `${this.height}px`;
         piece.style.position = 'absolute';
@@ -39,13 +50,15 @@ class Piece {
         this.div.addEventListener("mousedown", (e) => {
             console.log('mousedown')
             this.dragging = true
+            this.active = true
+            this.div.style.zIndex = '10'
             this.cursorStartPos.x = e.clientX
             this.cursorStartPos.y = e.clientY
         });
 
         this.div.addEventListener("mousemove", (e) => {
 
-            if (this.dragging) {
+            if (this.dragging&&this.active) {
                 console.log('mousemove')
                 let dx = this.cursorStartPos.x - e.clientX
                 let dy = this.cursorStartPos.y - e.clientY
@@ -58,6 +71,8 @@ class Piece {
         this.div.addEventListener("mouseup", (e) => {
             console.log('mouseup')
             this.dragging = false
+            this.active = false
+            this.div.style.zIndex = '1'
             this.top = parseFloat(this.div.style.top)
             this.left = parseFloat(this.div.style.left)
             console.log(this.x, this.y)
@@ -65,15 +80,34 @@ class Piece {
     }
 }
 
-function createGrid(nRows, nCols, puzzleWidth, puzzleHeight) {
+function createGrid(nRows, nCols, puzzleWidth, puzzleHeight, puzzleContainer) {
+    let pieceWidth = puzzleWidth/nCols;
+    let pieceHeight = puzzleHeight/nRows;
+
+    let xStart = window.innerWidth/2 - puzzleWidth/2 + pieceWidth/2;
+    let yStart = window.innerHeight/2 - puzzleHeight/2 + pieceHeight/2;
+
     let gridPositions = [];
+    let pieces = [];
     for (let i = 0; i < nRows; i++) {
         for (let j = 0; j < nCols; j++) {
-            let x = j*puzzleWidth/nCols;
-            let y = i*puzzleHeight/nRows;
+            let x = xStart + j*pieceWidth;
+            let y = yStart + i*pieceHeight;
             gridPositions.push({x: x, y: y});
+            // pieces.push(piece);
         }
     }
+
+    gridPositions.forEach((pos, idx) => {
+        let fixedPiece = new Piece(pos.x, pos.y, pieceWidth, pieceHeight, puzzleContainer, isMovable=false);
+    });
+
+    gridPositions.forEach((pos, idx) => {
+        let piece = new Piece(pos.x, pos.y, pieceWidth, pieceHeight, puzzleContainer);
+    });
+
+
+    return gridPositions;
 }
 
 
@@ -89,13 +123,14 @@ function loadPuzzle(imageIdx, resolution) {
 
             let puzzleContainer = document.getElementById('puzzle-container');
 
-            let puzzleWidth = 0.8*window.innerWidth
+            let puzzleWidth = 0.5*window.innerWidth
             let puzzleHeight = puzzleWidth/ratio
 
             let pieceWidth = puzzleWidth/nCols
             let pieceHeight = puzzleHeight/nRows
 
-            let piece = new Piece(100, 100, pieceWidth, pieceHeight, puzzleContainer);
+            // let piece = new Piece(300, 300, pieceWidth, pieceHeight, puzzleContainer);
+            let gridPositions = createGrid(nRows, nCols, puzzleWidth, puzzleHeight, puzzleContainer);
             // let top = 100
             // let left = 150
 

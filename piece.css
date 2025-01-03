@@ -6,4 +6,5 @@
 .piece {
     display: absolute;
     background-color: aqua;
+    z-index: 1;
 }
