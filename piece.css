@@ -5,6 +5,8 @@
 
 .piece {
     display: absolute;
-    background-color: aqua;
+    background-color: rgba(109, 109, 109, 0.429);
+    /* outline: 1px solid rgba(173, 173, 173, 0.137); */
+    /* box-sizing: border-box; */
     z-index: 1;
 }
