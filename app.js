@@ -17,7 +17,6 @@ class Piece {
             this.addEventListeners();
         }
         this.active = false;
-
     }
 
     get x() { return this.left + this.width/2; }
@@ -64,6 +63,7 @@ class Piece {
             this.dragging = true
             this.active = true
             this.div.style.zIndex = '10'
+            this.div.style.outline = '2px solid white'
             this.cursorStartPos.x = e.clientX
             this.cursorStartPos.y = e.clientY
         });
@@ -84,6 +84,7 @@ class Piece {
             console.log('mouseup')
             this.dragging = false
             this.active = false
+            this.div.style.outline = '0px solid white'
             this.div.style.zIndex = '1'
             this.top = parseFloat(this.div.style.top)
             this.left = parseFloat(this.div.style.left)
@@ -110,7 +111,6 @@ function createGrid(nRows, nCols, puzzleWidth, puzzleHeight, puzzleContainer, im
             let x = xStart + j*pieceWidth;
             // console.log(x, xStart, j, pieceWidth)
             gridPositions.push({x: x, y: y});
-
         }
     }
 
@@ -121,11 +121,9 @@ function createGrid(nRows, nCols, puzzleWidth, puzzleHeight, puzzleContainer, im
 
     // console.log(imageData)
     gridPositions.forEach((pos, idx) => {
-
         let piece = new Piece(pos.x, pos.y, pieceWidth, pieceHeight, puzzleWidth, puzzleHeight, puzzleContainer, isMovable=true, imageName=imageData.name);
         pieces.push(piece);
     });
-
     let grid = {gridPositions: gridPositions, pieces: pieces};
     return grid
 }
@@ -143,8 +141,6 @@ function loadPuzzle(imageIdx, resolution) {
             let nCols = (ratio < 1) ? parseFloat(resolution) : Math.floor(resolution*ratio)
 
             let puzzleContainer = document.getElementById('puzzle-container');
-
-
 
             // let puzzleWidth = 0.5*window.innerWidth
             // let puzzleHeight = puzzleWidth/ratio
@@ -184,7 +180,6 @@ function loadPuzzle(imageIdx, resolution) {
                         piece.snapToPosition(snapPos.x, snapPos.y);
                     }
                 });
-
 
                 let puzzleStartX = window.innerWidth/2 - puzzleWidth/2
                 let puzzleStartY = window.innerHeight/2 - puzzleHeight/2
