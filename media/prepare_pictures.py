@@ -1,14 +1,24 @@
 import os
 from PIL import Image
 import json
+import uuid
 
 image_data = {}
-for i, filename in enumerate(os.listdir('pictures')):
-    print(i, filename)
 
+for filename in os.listdir('thumbnails'):
+    # delete old thumbnails
+    os.remove(f'thumbnails/{filename}')
+
+for filename in os.listdir('pictures'):
+    random_name_map = {}
+    random_name = f"{uuid.uuid4().hex}.jpg"
+    random_name_map[filename] = random_name
+    os.rename(f'pictures/{filename}', f'pictures/{random_name}')
+
+for id, filename in enumerate(os.listdir('pictures')):
     # rename file
     old_path = f'pictures/{filename}'
-    new_path = f'pictures/image{i}.jpg'
+    new_path = f'pictures/image{id}.jpg'
     os.rename(old_path, new_path)
 
     # get image dimensions
@@ -22,15 +32,16 @@ for i, filename in enumerate(os.listdir('pictures')):
 
     # resize image and save it to thumbnail directory
     image = image.resize((w, h))
-    image.save(f'thumbnails/{filename}')
+    image.save(f'thumbnails/image{id}.jpg')
 
     # store image data in dictionary
     data = {
-        "name": f"image{i}.jpg",
+        "name": f"image{id}.jpg",
         "width": width,
         "height": height,
+        "type": "landscape" if width > height else "portrait",
     }
-    image_data[i] = data
+    image_data[id] = data
 
 # save image data to JSON file
 with open('images.json', 'w') as json_file:

@@ -1,6 +1,6 @@
 import { Board } from './core/board.js';
 
-// Assuming the URL is "index.html?id=123"
+// Assuming the URL is "/jigsaw.html?id=123"
 const urlParams = new URLSearchParams(window.location.search);
 const imageIdx = urlParams.get('idx'); // "123"
 const rangeInput = document.getElementById('slider-input');
@@ -12,7 +12,7 @@ window.updatePuzzle = updatePuzzle;
 
 
 function loadPuzzle(imageIdx, resolution) {
-    fetch('images.json')
+    fetch('media/images.json')
         .then(response => { return response.json(); })
         .then(data => {
             let imageData = data[imageIdx]
@@ -25,11 +25,13 @@ function loadPuzzle(imageIdx, resolution) {
         })
 }
 
+
 function closePopUp(popUpId) {
     let popUp = document.getElementById(popUpId);
     popUp.style.display = 'none';
     popUp.style.zIndex = '-10';
 }
+
 
 function openPopUp(popUpId) {
     let popUp = document.getElementById(popUpId);
