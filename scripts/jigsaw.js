@@ -1,9 +1,14 @@
+import { Board } from './core/board.js';
+
 // Assuming the URL is "index.html?id=123"
 const urlParams = new URLSearchParams(window.location.search);
 const imageIdx = urlParams.get('idx'); // "123"
 const rangeInput = document.getElementById('slider-input');
 
 loadPuzzle(imageIdx, rangeInput.value);
+window.openPopUp = openPopUp;
+window.closePopUp = closePopUp;
+window.updatePuzzle = updatePuzzle;
 
 
 function loadPuzzle(imageIdx, resolution) {

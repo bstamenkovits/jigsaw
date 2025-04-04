@@ -1,4 +1,4 @@
-class Cell {
+export class Cell {
     constructor(idx, x, y, x0, y0, fixed, size, imageName, nRows, nCols) {
         this.idx = idx;
         this.x = x; // current x position
@@ -9,16 +9,16 @@ class Cell {
         this.size = size;
         this.imageName = imageName;
         this.div = this.createCellDiv(nRows, nCols)
-        
+
     }
 
     createCellDiv(nRows, nCols) {
         let cellDiv = document.createElement('div');
         cellDiv.className = 'cell';
-        // cellDiv.textContent = text; 
+        // cellDiv.textContent = text;
         cellDiv.style.width = `${this.size}px`;
         cellDiv.style.height = `${this.size}px`;
-        
+
         cellDiv.style.backgroundImage = `url("media/pictures/${this.imageName}")`;
         cellDiv.style.backgroundSize = `${nCols*this.size}px ${nRows*this.size}px`;
         cellDiv.style.backgroundPositionX = `-${this.x * this.size}px`;
@@ -29,7 +29,7 @@ class Cell {
     updatePosition(xNew, yNew) {
         this.x = xNew;
         this.y = yNew;
-    
+
         let rect = this.div.getBoundingClientRect();
         this.div.style.backgroundPositionX = `-${xNew * rect.width}px`;
         this.div.style.backgroundPositionY = `-${yNew * rect.height}px`;

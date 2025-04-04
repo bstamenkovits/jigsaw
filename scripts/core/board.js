@@ -1,8 +1,7 @@
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+import { Cell } from './cell.js';
 
-class Board {
+
+export class Board {
 
     constructor(nRows, nCols, imageName) {
         this.nRows = nRows;
